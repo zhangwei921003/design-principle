@@ -19,21 +19,21 @@ public class NavigationFactory {
     INavigation navigation = new DefaultNavigationBar();
     navigation = new AbstractNavigationBarDecorator(navigation);
     switch (permission) {
-      case VISITOR:
-        return navigation.getPermission();
-      case NORMAL_USER:
+      case ADMIN:
         navigation = new QuestionBankNavigationBarDecorator(navigation);
+        navigation = new GrowthNavigationBarDecorator(navigation);
+        navigation = new HomeworkNavigationBarDecorator(navigation);
+        navigation = new UserManagerNavigationBarDecorator(navigation);
         return navigation.getPermission();
       case VIP_USER:
         navigation = new QuestionBankNavigationBarDecorator(navigation);
         navigation = new GrowthNavigationBarDecorator(navigation);
         navigation = new HomeworkNavigationBarDecorator(navigation);
         return navigation.getPermission();
-      default:
+      case NORMAL_USER:
         navigation = new QuestionBankNavigationBarDecorator(navigation);
-        navigation = new GrowthNavigationBarDecorator(navigation);
-        navigation = new HomeworkNavigationBarDecorator(navigation);
-        navigation = new UserManagerNavigationBarDecorator(navigation);
+        return navigation.getPermission();
+      default:
         return navigation.getPermission();
     }
   }
