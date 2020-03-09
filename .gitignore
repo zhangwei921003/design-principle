@@ -1,0 +1,19 @@
+### Gradle ###
+.gradle
+build
+
+### Maven ###
+.gradle
+build
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+*.DS_Store
+out
+logs
+
+###Build####
+target
