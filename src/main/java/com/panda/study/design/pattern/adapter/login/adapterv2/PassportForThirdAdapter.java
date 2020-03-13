@@ -28,7 +28,7 @@ public class PassportForThirdAdapter implements IPassportForThird {
     return processLogin(phone, LoginForTelAdapter.class);
   }
 
-  private ResultMsg processLogin(String id, Class<? extends ILoginAdapter> clazz) {
+  protected ResultMsg processLogin(String id, Class<? extends ILoginAdapter> clazz) {
     try {
       ILoginAdapter adapter = clazz.newInstance();
       if (adapter.support(adapter)) {
